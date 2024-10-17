@@ -1,16 +1,14 @@
-variable "resource_group_location" {
-  default     = "eastus"
-  description = "Location of the resource group."
-}
-
-//variable "resourcegroupname" {}
-
-variable "resource_group_name_prefix" {
- // default     = "rg"
-  description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
-}
-
 variable "keyvaultname" {
-  default = "kvpihu"
+  type = string
   description = "keyvault description"
+}
+
+variable "location" {
+  type = string
+  description = "location description"
+}
+
+variable "resource_group_name" {
+  type = string
+  description = "resource_group name description"
 }

@@ -1,7 +1,8 @@
-variable "storageaccountname" {
+variable "app_service_name" {
   type = string
-  description = "storage accoount creation"
+  description = "Location of the resource group."
 }
+
 variable "location" {
   type = string
   description = "location description"
@@ -12,8 +13,7 @@ variable "resource_group_name" {
   description = "resource_group name description"
 }
 
-variable "account_tier" {
+variable "web_app_name" {
   type = string
-  default = "Standard"
   description = "resource_group name description"
 }

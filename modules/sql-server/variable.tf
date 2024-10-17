@@ -1,11 +1,26 @@
-variable "resource_group_location" {
-  default     = "eastus"
-  description = "Location of the resource group."
+variable "sqlserver_name" {
+  type = string
+  description = "keyvault description"
 }
 
-//variable "resourcegroupname" {}
+variable "location" {
+  type = string
+  default = "North Europe"
+  description = "location description"
+}
 
-variable "resource_group_name_prefix" {
- // default     = "rg"
-  description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
+variable "resource_group_name" {
+  type = string
+  description = "resource_group name description"
+}
+
+variable "sql_db_name" {
+  type = string
+  description = "resource_group name description"
+}
+
+variable "sku_name" {
+  type = string 
+  default = "S0"
+  description = "resource_group name description"
 }
