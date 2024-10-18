@@ -27,6 +27,7 @@ module "sql_db" {
 module "app_service_plan" {
   source = "../../modules/web-app"
   app_service_name = var.app_service_name
+  web_app_name = var.web_app_name
   resource_group_name= azurerm_resource_group.rgname.name
   location = azurerm_resource_group.rgname.location
 } 
