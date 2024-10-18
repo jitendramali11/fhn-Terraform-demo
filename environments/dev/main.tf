@@ -11,15 +11,6 @@ module "key_vault" {
 }
 
 
-module "storage_account" {
-  source = "../../modules/storage-account"
-  storageaccountname = var.storageaccountname
-  account_tier = "Standard"
-  resource_group_name = azurerm_resource_group.rgname.name
-  location = azurerm_resource_group.rgname.location
-}
-
-
 module "sql_server" {
   source = "../../modules/sql-server"
   sqlserver_name = var.sqlserver_name
