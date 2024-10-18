@@ -27,15 +27,8 @@ stages:
               command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
           
-          - task: TerraformCLI@2
-            displayName: validate
-            inputs:
-              command: 'validate'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
             
   - stage: tfdeploy
-    condition: succeeded('tfvalidate')
-    dependsOn: tfvalidate
     jobs:
       - job: apply
         continueOnError: false
