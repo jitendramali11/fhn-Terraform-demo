@@ -10,11 +10,61 @@ pool:
   name: Default
   vmImage: Jitendra-PC
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+stages:
+  - stage: tfvalidate
+    jobs:
+      - job: validate
+        continueOnError: false
+        steps:
+          - task: TerraformInstaller@2
+            displayName: tfinstall
+            inputs:
+              terraformVersion: 'latest'
+          - task: TerraformCLI@2
+            displayName: 'Init'
+            inputs:
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+          
+          - task: TerraformCLI@2
+            displayName: validate
+            inputs:
+              command: 'validate'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+            
+  - stage: tfdeploy
+    condition: succeeded('tfvalidate')
+    dependsOn: tfvalidate
+    jobs:
+      - job: apply
+        continueOnError: false
+        steps:
+          - task: TerraformInstaller@2
+            displayName: tfinstall
+            inputs:
+              terraformVersion: 'latest'
+          - task: TerraformCLI@2
+            displayName: 'Init'
+            inputs:
+              command: 'init'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+          - task: TerraformCLI@2
+            displayName: Plan
+            inputs:
+              command: 'plan'
+              environmentServiceName: 'dev-fhn-svc'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+          - task: TerraformCLI@2
+            inputs:
+              command: 'apply'
+              environmentServiceName: 'dev-fhn-svc'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
+
+
+          
+          
+             
+             
+
+    
