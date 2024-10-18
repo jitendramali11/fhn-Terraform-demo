@@ -33,7 +33,7 @@ module "app_service_plan" {
 
 module "web_app" {
   source = "../../modules/web-app"
-  app_service_name = var.web_app_name
+  web_app_name = var.web_app_name
   resource_group_name= azurerm_resource_group.rgname.name
   location = azurerm_resource_group.rgname.location
 } 
