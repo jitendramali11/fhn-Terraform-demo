@@ -42,7 +42,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -var-file="${{env.ROOT_PATH}}/terraform.tfvars"
+      run: terraform plan -var-file="${{env.ROOT_PATH}}/environments/dev/terraform.tfvars"
       working-directory: ${{env.ROOT_PATH}}
   
   terraform_apply:
