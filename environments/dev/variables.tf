@@ -33,7 +33,8 @@ variable "sku_name" {
 }
 
 variable "app_service_name" {
-   type = string
+  default = "fhntestserviceapp" 
+  type = string
 }
 
 variable "web_app_name" {
