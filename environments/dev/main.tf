@@ -46,7 +46,6 @@ module "app_service_plan" {
 module "web_app" {
   source = "../../modules/web-app"
   web_app_name = var.web_app_name
-  app_service_name = var.app_service_name
   resource_group_name= azurerm_resource_group.rgname.name
   location = azurerm_resource_group.rgname.location
 } 
