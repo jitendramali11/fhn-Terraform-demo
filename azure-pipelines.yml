@@ -40,7 +40,7 @@ stages:
           - task: TerraformCLI@2
             displayName: 'Init'
             inputs:
-              command: 'init -upgrade'
+              command: 'init'
               workingDirectory: '$(System.DefaultWorkingDirectory)/environments/dev'
           - task: TerraformCLI@2
             displayName: Plan
