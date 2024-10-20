@@ -14,6 +14,7 @@ variable "resource_group_name" {
 
 variable "account_tier" {
   type = string
+  default = "Standard"
   description = "account_tier name description"
 }
 

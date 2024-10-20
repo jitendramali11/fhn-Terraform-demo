@@ -16,6 +16,7 @@ variable "storageaccountname" {
 }
 
 variable "account_tier" {
+  default = "Standard"
   type = string
 }
 
