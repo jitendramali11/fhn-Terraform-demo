@@ -23,7 +23,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./environments/dev
+        working-directory: '${{github.workspace}}/environments/dev'
 
 
     steps:
@@ -55,7 +55,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./environments/dev
+        working-directory: '${{github.workspace}}/environments/dev'
 
     steps:
     # Checkout the repository to the GitHub Actions runner
