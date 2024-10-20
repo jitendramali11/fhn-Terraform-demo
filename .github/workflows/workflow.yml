@@ -42,7 +42,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan 
+      run: terraform plan -var-file="terraform.tfvars"
       working-directory: ${{env.ROOT_PATH}}
   
   terraform_apply:
@@ -74,5 +74,5 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Apply
-      run: terraform apply --auto-approve
+      run: terraform apply -var-file="terraform.tfvars" --auto-approve
       working-directory: ${{env.ROOT_PATH}}
