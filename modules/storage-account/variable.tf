@@ -11,3 +11,9 @@ variable "resource_group_name" {
   type = string
   description = "resource_group name description"
 }
+
+variable "account_tier" {
+  type = string
+  description = "account_tier name description"
+}
+
