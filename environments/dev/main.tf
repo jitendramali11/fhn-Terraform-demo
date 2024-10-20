@@ -13,7 +13,7 @@ module "key_vault" {
 module "storage_account" {
   source = "../../modules/storage-account"
   storageaccountname = var.storageaccountname
-  account_tier = string      
+  account_tier = var.account_tier      
   resource_group_name = azurerm_resource_group.rgname.name
   location = azurerm_resource_group.rgname.location
 }
