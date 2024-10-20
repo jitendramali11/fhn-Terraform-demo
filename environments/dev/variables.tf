@@ -16,7 +16,6 @@ variable "storageaccountname" {
 }
 
 variable "account_tier" {
-  default = "Standard"
   type = string
 }
 
@@ -33,7 +32,6 @@ variable "sku_name" {
 }
 
 variable "app_service_name" {
-  default = "fhntestserviceapp" 
   type = string
 }
 
