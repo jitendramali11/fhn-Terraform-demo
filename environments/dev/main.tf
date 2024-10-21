@@ -38,6 +38,7 @@ module "sql_db" {
 module "app_service_plan" {
   source = "../../modules/web-app"
   app_service_name = "dev-fhntest-app-serviceplan"
+  web_app_name = "dev-fhntest-webapp1"
   resource_group_name= azurerm_resource_group.rgname.name
   location = azurerm_resource_group.rgname.location
 } 
