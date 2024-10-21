@@ -28,6 +28,7 @@ module "sql_server" {
 
 module "sql_db" {
   source = "../../modules/sql-server"
+  sqlserver_name = "dev-fhntest-sql-server85"
   sql_db_name = "dev-fhntest-testdb85"
   resource_group_name= azurerm_resource_group.rgname.name
   sku_name = "S0"
