@@ -45,7 +45,7 @@ module "app_service_plan" {
 module "web_app" {
   source = "../../modules/web-app"
   app_service_name = "dev-fhntest-app-serviceplan"
-  web_app_name = var.web_app_name
+  web_app_name = "dev-fhntest-webapp1"
   resource_group_name= azurerm_resource_group.rgname.name
   location = azurerm_resource_group.rgname.location
 } 
